@@ -339,7 +339,7 @@ int sample_solid_solution(Parameters& params, double P_cont, double V_cont, doub
 			else {
 				P_out = 0;			//выходной результат
 				D_out = 0;
-				V_out = v;
+				V_out = 0;
 				E_out = 0;
 			}
 			return 1;
@@ -387,7 +387,7 @@ int sample_solid_solution(Parameters& params, double P_cont, double V_cont, doub
 			else {
 				P_out = 0;			//выходной результат
 				D_out = 0;
-				V_out = v;
+				V_out = 0;
 				E_out = 0;
 			}
 			return 1;
@@ -438,7 +438,7 @@ int sample_solid_solution(Parameters& params, double P_cont, double V_cont, doub
 					else {
 						P_out = 0;			//выходной результат
 						D_out = 0;
-						V_out = v;
+						V_out = 0;
 						E_out = 0;
 						return 2;
 					}
@@ -535,7 +535,7 @@ int sample_solid_solution(Parameters& params, double P_cont, double V_cont, doub
 					else {
 						P_out = 0;			//выходной результат
 						D_out = 0;
-						V_out = v;
+						V_out = 0;
 						E_out = 0;
 						return 2;
 					}
