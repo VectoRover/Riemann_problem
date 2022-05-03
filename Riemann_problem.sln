@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Riemann_problem", "Riemann_problem.vcxproj", "{F4478605-5AEE-41C2-851D-8D5A5905A72E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Debug|x64.ActiveCfg = Debug|x64
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Debug|x64.Build.0 = Debug|x64
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Debug|x86.Build.0 = Debug|Win32
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Release|x64.ActiveCfg = Release|x64
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Release|x64.Build.0 = Release|x64
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Release|x86.ActiveCfg = Release|Win32
+		{F4478605-5AEE-41C2-851D-8D5A5905A72E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A63221EC-47F8-4186-AB9F-F4039D7C3967}
+	EndGlobalSection
+EndGlobal
