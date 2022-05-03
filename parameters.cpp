@@ -37,6 +37,10 @@ void Parameters::parameters_to_vector() {
 	C_L.push_back(C_L_8);
 	C_L.push_back(C_L_9);
 	C_L.push_back(C_L_10);
+	C_L.push_back(C_L_11);
+	C_L.push_back(C_L_12);
+	C_L.push_back(C_L_13);
+	C_L.push_back(C_L_14);
 
 	C_R.push_back(C_R_1);
 	C_R.push_back(C_R_2);
@@ -48,6 +52,10 @@ void Parameters::parameters_to_vector() {
 	C_R.push_back(C_R_8);
 	C_R.push_back(C_R_9);
 	C_R.push_back(C_R_10);
+	C_R.push_back(C_R_11);
+	C_R.push_back(C_R_12);
+	C_R.push_back(C_R_13);
+	C_R.push_back(C_R_14);
 
 	n_L.push_back(n_L_1);
 	n_L.push_back(n_L_2);
@@ -59,6 +67,10 @@ void Parameters::parameters_to_vector() {
 	n_L.push_back(n_L_8);
 	n_L.push_back(n_L_9);
 	n_L.push_back(n_L_10);
+	n_L.push_back(n_L_11);
+	n_L.push_back(n_L_12);
+	n_L.push_back(n_L_13);
+	n_L.push_back(n_L_14);
 
 	n_R.push_back(n_R_1);
 	n_R.push_back(n_R_2);
@@ -70,5 +82,8 @@ void Parameters::parameters_to_vector() {
 	n_R.push_back(n_R_8);
 	n_R.push_back(n_R_9);
 	n_R.push_back(n_R_10);
-
+	n_R.push_back(n_R_11);
+	n_R.push_back(n_R_12);
+	n_R.push_back(n_R_13);
+	n_R.push_back(n_R_14);
 }

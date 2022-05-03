@@ -25,30 +25,53 @@ void read_parameters(Parameters& params) {
 
 	getline(input, str); //считали заголовок
 	getline(input, str); //считали заголовок zone 1
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 17; i++) {
 		getline(input, str);
 		vec_l.push_back(stod(str.substr(10)));
 	}
+	getline(input, str); //считали пустую строку, разделяющую зоны
 	getline(input, str); //считали заголовок zone 2
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 17; i++) {
 		getline(input, str);
 		vec_r.push_back(stod(str.substr(10)));
 	}
-	params.P_L = vec_l[0] * params.P0;    //заполнили поля params параметрами слева
-	params.T_L = vec_l[1];
-	params.V_L = vec_l[2];
-	params.C_L_1 = vec_l[3];
-	params.C_L_2 = vec_l[4];
-	params.C_L_3 = vec_l[5];
-	params.C_L_4 = vec_l[6];
+	
+	params.P_L =	vec_l[0] * params.P0;    //заполнили поля params параметрами слева
+	params.T_L =	vec_l[1];
+	params.V_L =	vec_l[2];
+	params.C_L_1 =	vec_l[3];
+	params.C_L_2 =	vec_l[4];
+	params.C_L_3 =	vec_l[5];
+	params.C_L_4 =	vec_l[6];
+	params.C_L_5 =	vec_l[7];
+	params.C_L_6 =	vec_l[8];
+	params.C_L_7 =	vec_l[9];
+	params.C_L_8 =	vec_l[10];
+	params.C_L_9 =	vec_l[11];
+	params.C_L_10 = vec_l[12];
+	params.C_L_11 = vec_l[13];
+	params.C_L_12 = vec_l[14];
+	params.C_L_13 = vec_l[15];
+	params.C_L_14 = vec_l[16];
 
-	params.P_R = vec_r[0] * params.P0;    //заполнили поля params параметрами справа
-	params.T_R = vec_r[1];
-	params.V_R = vec_r[2];
-	params.C_R_1 = vec_r[3];
-	params.C_R_2 = vec_r[4];
-	params.C_R_3 = vec_r[5];
-	params.C_R_4 = vec_r[6];
+
+	params.P_R =	vec_r[0] * params.P0;    //заполнили поля params параметрами справа
+	params.T_R =	vec_r[1];
+	params.V_R =	vec_r[2];
+	params.C_R_1 =	vec_r[3];
+	params.C_R_2 =	vec_r[4];
+	params.C_R_3 =	vec_r[5];
+	params.C_R_4 =	vec_r[6];
+	params.C_R_5 =	vec_r[7];
+	params.C_R_6 =	vec_r[8];
+	params.C_R_7 =	vec_r[9];
+	params.C_R_8 =	vec_r[10];
+	params.C_R_9 =	vec_r[11];
+	params.C_R_10 = vec_r[12];
+	params.C_R_11 = vec_r[13];
+	params.C_R_12 = vec_r[14];
+	params.C_R_13 = vec_r[15];
+	params.C_R_14 = vec_r[16];
 
 	params.parameters_to_vector();
 }
@@ -57,8 +80,16 @@ void calc_concentration(Parameters& params) {
 
 	double denominator_l = 0, denominator_r = 0; // знаменателm дроби, в котором рассчитываются концентрации. Общий для всех концентраций с одной стороны.
 
-	denominator_l = params.M_C2H2 * params.C_L[0] + params.M_O2 * params.C_L[1] + params.M_N2 * params.C_L[2] + params.M_Ar * params.C_L[3];
-	denominator_r = params.M_C2H2 * params.C_R[0] + params.M_O2 * params.C_R[1] + params.M_N2 * params.C_R[2] + params.M_Ar * params.C_R[3];
+
+	denominator_l = params.M_C2H2 * params.C_L[0] + params.M_O2 * params.C_L[1] + params.M_N2 * params.C_L[2] + params.M_Ar * params.C_L[3]
+		+ params.M_CO2 * params.C_L[4] + params.M_H2O * params.C_L[5] + params.M_H * params.C_L[6] + params.M_O * params.C_L[7]
+		+ params.M_OH * params.C_L[8] + params.M_HO2 * params.C_L[9] + params.M_CO * params.C_L[10] + params.M_H2CO * params.C_L[11]
+		+ params.M_HCO * params.C_L[12] + params.M_CH3 * params.C_L[13];
+	
+	denominator_r = params.M_C2H2 * params.C_R[0] + params.M_O2 * params.C_R[1] + params.M_N2 * params.C_R[2] + params.M_Ar * params.C_R[3]
+		+ params.M_CO2 * params.C_R[4] + params.M_H2O * params.C_R[5] + params.M_H * params.C_R[6] + params.M_O * params.C_R[7]
+		+ params.M_OH * params.C_R[8] + params.M_HO2 * params.C_R[9] + params.M_CO * params.C_R[10] + params.M_H2CO * params.C_R[11]
+		+ params.M_HCO * params.C_R[12] + params.M_CH3 * params.C_R[13];
 
 	for (int i = 0; i < int(params.C_L.size()); i++) {
 		params.n_L[i] = params.C_L[i] / denominator_l;
@@ -72,8 +103,15 @@ void calc_adiabatic_index(Parameters& params) {
 	double numerator_l = 0; //числители дроби, в которой рассчитывается показатель адиабаты
 	double numerator_r = 0;
 
-	numerator_l = params.n_L[0] * params.Cp_H2 + params.n_L[1] * params.Cp_O2 + params.n_L[2] * params.Cp_N2 + params.n_L[3] * params.Cp_Ar;
-	numerator_r = params.n_R[0] * params.Cp_H2 + params.n_R[1] * params.Cp_O2 + params.n_R[2] * params.Cp_N2 + params.n_R[3] * params.Cp_Ar;
+	numerator_l = params.n_L[0] * params.Cp_C2H2 + params.n_L[1] * params.Cp_O2 + params.n_L[2] * params.Cp_N2 + params.n_L[3] * params.Cp_Ar
+		+ params.n_L[4] * params.Cp_CO2 + params.n_L[5] * params.Cp_H2O + params.n_L[6] * params.Cp_H + params.n_L[7] * params.Cp_O
+		+ params.n_L[8] * params.Cp_OH + params.n_L[9] * params.Cp_HO2 + params.n_L[10] * params.Cp_CO + params.n_L[11] * params.Cp_H2CO
+		+ params.n_L[12] * params.Cp_HCO + params.n_L[13] * params.Cp_CH3;
+
+	numerator_r = params.n_R[0] * params.Cp_C2H2 + params.n_R[1] * params.Cp_O2 + params.n_R[2] * params.Cp_N2 + params.n_R[3] * params.Cp_Ar
+		+ params.n_R[4] * params.Cp_CO2 + params.n_R[5] * params.Cp_H2O + params.n_R[6] * params.Cp_H + params.n_R[7] * params.Cp_O
+		+ params.n_R[8] * params.Cp_OH + params.n_R[9] * params.Cp_HO2 + params.n_R[10] * params.Cp_CO + params.n_R[11] * params.Cp_H2CO
+		+ params.n_R[12] * params.Cp_HCO + params.n_R[13] * params.Cp_CH3;
 
 	params.gl = numerator_l / (numerator_l - params.R0 * sum_of_el(params.n_L));
 	params.gr = numerator_r / (numerator_r - params.R0 * sum_of_el(params.n_R));
